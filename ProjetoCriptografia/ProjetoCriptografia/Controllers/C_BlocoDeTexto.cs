@@ -12,7 +12,7 @@ namespace ProjetoCriptografia.Controllers
     {
         public string DivideTextoEmBlocos(string Texto) {
             BlocoDeTexto obj = new BlocoDeTexto();
-            C_TransformaEm8Byte textoEm8Byte = new C_TransformaEm8Byte();
+            C_Transforma textoEm8Byte = new C_Transforma();
 
             obj.texto = textoEm8Byte.TransformaTextoEm8Byte(Texto);
 

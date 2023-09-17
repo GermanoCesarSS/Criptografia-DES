@@ -51,11 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\C_Permutacoes.cs" />
     <Compile Include="Controllers\C_BlocoDeTexto.cs" />
     <Compile Include="Controllers\C_ChaveAleatoria64bits.cs" />
-    <Compile Include="Controllers\C_TransformaEm8Byte.cs" />
+    <Compile Include="Controllers\C_Transforma.cs" />
     <Compile Include="Model\BlocoDeTexto.cs" />
-    <Compile Include="Model\ChaveAleatoria64bits.cs" />
+    <Compile Include="Model\Chaves.cs" />
     <Compile Include="View\CifraCesar.cs">
       <SubType>Form</SubType>
     </Compile>

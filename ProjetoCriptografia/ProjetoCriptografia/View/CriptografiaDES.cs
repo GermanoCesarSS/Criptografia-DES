@@ -25,6 +25,10 @@ namespace ProjetoCriptografia.View
         private void bntBlocoDeTexto_Click(object sender, EventArgs e) {
             C_BlocoDeTexto blocoDeTexto = new C_BlocoDeTexto();
             txtTexto.Text = blocoDeTexto.DivideTextoEmBlocos(txtTexto.Text);
+
+            C_Permutacoes c_Permutacoes = new C_Permutacoes();
+            string Kp = c_Permutacoes.PermutacaoPC_1(txtChave.Text);
+            txtTexto.Text += Kp;
         }
     }
 }

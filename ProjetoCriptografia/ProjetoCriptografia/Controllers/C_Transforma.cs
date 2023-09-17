@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoCriptografia.Controllers
 {
-    internal class C_TransformaEm8Byte
+    internal class C_Transforma
     {
         public string TransformaTextoEm8Byte(string texto) {
             byte[] bytes = Encoding.ASCII.GetBytes(texto);
@@ -31,7 +31,6 @@ namespace ProjetoCriptografia.Controllers
             //Transforma o vetor em uma string
             return string.Join("", textoEm8Bytes);
         }
-
         public string Transforma8ByteEmTexto(string bits) {
 
             List<byte> bytes = new List<byte>();
@@ -43,5 +42,6 @@ namespace ProjetoCriptografia.Controllers
 
             return Encoding.ASCII.GetString(bytes.ToArray());
         }
+
     }
 }

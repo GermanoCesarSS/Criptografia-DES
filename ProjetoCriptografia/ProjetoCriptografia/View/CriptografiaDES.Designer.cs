@@ -33,9 +33,10 @@
             // 
             // txtChave
             // 
+            this.txtChave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChave.Location = new System.Drawing.Point(439, 56);
             this.txtChave.Name = "txtChave";
-            this.txtChave.Size = new System.Drawing.Size(365, 22);
+            this.txtChave.Size = new System.Drawing.Size(365, 28);
             this.txtChave.TabIndex = 0;
             // 
             // btnGerarChave
