@@ -29,6 +29,7 @@
             this.btnGerarChave = new System.Windows.Forms.Button();
             this.txtTexto = new System.Windows.Forms.TextBox();
             this.bntBlocoTexto = new System.Windows.Forms.Button();
+            this.btnDividir = new ReaLTaiizor.Controls.AirButton();
             this.SuspendLayout();
             // 
             // txtChave
@@ -68,11 +69,27 @@
             this.bntBlocoTexto.UseVisualStyleBackColor = true;
             this.bntBlocoTexto.Click += new System.EventHandler(this.bntBlocoDeTexto_Click);
             // 
+            // btnDividir
+            // 
+            this.btnDividir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDividir.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
+            this.btnDividir.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDividir.Image = null;
+            this.btnDividir.Location = new System.Drawing.Point(342, 327);
+            this.btnDividir.Name = "btnDividir";
+            this.btnDividir.NoRounding = false;
+            this.btnDividir.Size = new System.Drawing.Size(109, 32);
+            this.btnDividir.TabIndex = 4;
+            this.btnDividir.Text = "DividirTexto";
+            this.btnDividir.Transparent = false;
+            this.btnDividir.Click += new System.EventHandler(this.btnDividir_Click);
+            // 
             // CriptografiaDES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 509);
+            this.Controls.Add(this.btnDividir);
             this.Controls.Add(this.bntBlocoTexto);
             this.Controls.Add(this.txtTexto);
             this.Controls.Add(this.btnGerarChave);
@@ -90,5 +107,6 @@
         private System.Windows.Forms.Button btnGerarChave;
         private System.Windows.Forms.TextBox txtTexto;
         private System.Windows.Forms.Button bntBlocoTexto;
+        private ReaLTaiizor.Controls.AirButton btnDividir;
     }
 }

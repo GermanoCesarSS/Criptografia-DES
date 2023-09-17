@@ -17,17 +17,25 @@ namespace ProjetoCriptografia.View
             InitializeComponent();
         }
 
+        C_Chave c_Chave = new C_Chave();
         private void btnGerarChave_Click(object sender, EventArgs e) {
-            C_ChaveAleatoria64bits chaveAleatoria64Bits = new C_ChaveAleatoria64bits();
-            txtChave.Text = chaveAleatoria64Bits.CriandoChave();
+            txtChave.Text = c_Chave.CriandoChave();
         }
 
         private void bntBlocoDeTexto_Click(object sender, EventArgs e) {
             C_BlocoDeTexto blocoDeTexto = new C_BlocoDeTexto();
             //txtTexto.Text = blocoDeTexto.DivideTextoEmBlocos(txtTexto.Text);
 
-            C_Permutacoes c_Permutacoes = new C_Permutacoes();
-            txtTexto.Text += c_Permutacoes.PermutacaoPC_1(txtTexto.Text);
+            txtTexto.Text = c_Chave.PermutacaoPC_1(txtTexto.Text);
+        }
+
+        private void btnDividir_Click(object sender, EventArgs e) {
+            Tuple<string, string> resultado = c_Chave.DividirStringAoMeio(txtTexto.Text);
+
+            string C = resultado.Item1;
+            string D = resultado.Item2;
+
+            txtTexto.Text = $"{C}\r{D}";
         }
     }
 }
