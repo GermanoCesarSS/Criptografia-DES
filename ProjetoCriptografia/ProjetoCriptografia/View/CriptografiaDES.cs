@@ -29,13 +29,24 @@ namespace ProjetoCriptografia.View
             txtTexto.Text = c_Chave.PermutacaoPC_1(txtTexto.Text);
         }
 
+        string D = "";
+        string C = "";
         private void btnDividir_Click(object sender, EventArgs e) {
             Tuple<string, string> resultado = c_Chave.DividirStringAoMeio(txtTexto.Text);
 
-            string C = resultado.Item1;
-            string D = resultado.Item2;
+            C = resultado.Item1;
+            D = resultado.Item2;
 
-            txtTexto.Text = $"{C}\r{D}";
+            txtTexto.Text = $"{C}{D}";
+        }
+
+        private void btnMover_Click(object sender, EventArgs e) {
+            txtTexto.Text = c_Chave.MoverPrimeiraLetraParaOFinal(C);
+            txtTexto.Text += c_Chave.MoverPrimeiraLetraParaOFinal(D);
+        }
+
+        private void btnPC2_Click(object sender, EventArgs e) {
+            txtTexto.Text = c_Chave.PermutacaoPC_2(txtTexto.Text);
         }
     }
 }

@@ -41,6 +41,7 @@ namespace ProjetoCriptografia.Controllers
             return kp.ToString();
         }
 
+
         public Tuple<string, string> DividirStringAoMeio(string texto) {
             if (texto.Length != 56) {
                 throw new ArgumentException("A string de entrada deve ter 56 caracteres.");
@@ -51,6 +52,27 @@ namespace ProjetoCriptografia.Controllers
             string parte2 = texto.Substring(meio);
 
             return new Tuple<string, string>(parte1, parte2);
+        }
+
+        public string MoverPrimeiraLetraParaOFinal(string texto) {
+
+            char primeiraLetra = texto[0];
+            string restante = texto.Substring(1);
+
+            return restante + primeiraLetra;
+        }
+        public string PermutacaoPC_2(string texto) {
+            StringBuilder kp = new StringBuilder();
+
+            try {
+                for (int i = 0; i < obj.pc2Permutacao.Length; i++) {
+                    kp.Append(texto[obj.pc2Permutacao[i] - 1]);
+                }
+            }
+            catch (Exception e) {
+                MessageBox.Show(e.Message, "Erro na permutação PC-1");
+            }
+            return kp.ToString();
         }
     }
 }

@@ -30,6 +30,8 @@
             this.txtTexto = new System.Windows.Forms.TextBox();
             this.bntBlocoTexto = new System.Windows.Forms.Button();
             this.btnDividir = new ReaLTaiizor.Controls.AirButton();
+            this.btnMover = new ReaLTaiizor.Controls.AirButton();
+            this.btnPC2 = new ReaLTaiizor.Controls.AirButton();
             this.SuspendLayout();
             // 
             // txtChave
@@ -84,11 +86,43 @@
             this.btnDividir.Transparent = false;
             this.btnDividir.Click += new System.EventHandler(this.btnDividir_Click);
             // 
+            // btnMover
+            // 
+            this.btnMover.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMover.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
+            this.btnMover.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMover.Image = null;
+            this.btnMover.Location = new System.Drawing.Point(342, 377);
+            this.btnMover.Name = "btnMover";
+            this.btnMover.NoRounding = false;
+            this.btnMover.Size = new System.Drawing.Size(109, 32);
+            this.btnMover.TabIndex = 5;
+            this.btnMover.Text = "MoverTexto";
+            this.btnMover.Transparent = false;
+            this.btnMover.Click += new System.EventHandler(this.btnMover_Click);
+            // 
+            // btnPC2
+            // 
+            this.btnPC2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPC2.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
+            this.btnPC2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnPC2.Image = null;
+            this.btnPC2.Location = new System.Drawing.Point(342, 428);
+            this.btnPC2.Name = "btnPC2";
+            this.btnPC2.NoRounding = false;
+            this.btnPC2.Size = new System.Drawing.Size(109, 32);
+            this.btnPC2.TabIndex = 6;
+            this.btnPC2.Text = "PC-2";
+            this.btnPC2.Transparent = false;
+            this.btnPC2.Click += new System.EventHandler(this.btnPC2_Click);
+            // 
             // CriptografiaDES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 509);
+            this.Controls.Add(this.btnPC2);
+            this.Controls.Add(this.btnMover);
             this.Controls.Add(this.btnDividir);
             this.Controls.Add(this.bntBlocoTexto);
             this.Controls.Add(this.txtTexto);
@@ -108,5 +142,7 @@
         private System.Windows.Forms.TextBox txtTexto;
         private System.Windows.Forms.Button bntBlocoTexto;
         private ReaLTaiizor.Controls.AirButton btnDividir;
+        private ReaLTaiizor.Controls.AirButton btnMover;
+        private ReaLTaiizor.Controls.AirButton btnPC2;
     }
 }
