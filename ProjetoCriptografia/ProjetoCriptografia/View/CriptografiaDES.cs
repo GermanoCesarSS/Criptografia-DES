@@ -19,7 +19,7 @@ namespace ProjetoCriptografia.View
 
         private void btnGerarChave_Click(object sender, EventArgs e) {
             C_ChaveAleatoria64bits chaveAleatoria64Bits = new C_ChaveAleatoria64bits();
-            txtTexto.Text = chaveAleatoria64Bits.CriandoChave();
+            txtChave.Text = chaveAleatoria64Bits.CriandoChave();
         }
 
         private void bntBlocoDeTexto_Click(object sender, EventArgs e) {

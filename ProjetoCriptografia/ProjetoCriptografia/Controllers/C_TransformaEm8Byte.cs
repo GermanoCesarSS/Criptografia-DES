@@ -31,5 +31,17 @@ namespace ProjetoCriptografia.Controllers
             //Transforma o vetor em uma string
             return string.Join("", textoEm8Bytes);
         }
+
+        public string Transforma8ByteEmTexto(string bits) {
+
+            List<byte> bytes = new List<byte>();
+            for (int i = 0; i < bits.Length; i += 8) {
+                string byteString = bits.Substring(i, 8);
+                byte valor = Convert.ToByte(byteString, 2);
+                bytes.Add(valor);
+            }
+
+            return Encoding.ASCII.GetString(bytes.ToArray());
+        }
     }
 }

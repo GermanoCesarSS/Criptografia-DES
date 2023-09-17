@@ -13,6 +13,6 @@ namespace ProjetoCriptografia.Model
         }
 
         public int tamanhoChave { get; } = 8;
-        public byte[] ChaveEmBytes { get; set; } //= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+        public string Chave { get;} = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
     }
 }

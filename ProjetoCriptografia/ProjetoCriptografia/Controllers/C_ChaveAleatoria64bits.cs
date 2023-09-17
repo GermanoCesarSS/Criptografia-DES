@@ -13,18 +13,19 @@ namespace ProjetoCriptografia.Controllers
         public string CriandoChave() {
             ChaveAleatoria64bits obj = new ChaveAleatoria64bits();
             C_TransformaEm8Byte textoEm8Byte = new C_TransformaEm8Byte();
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
 
-            obj.ChaveEmBytes = new byte[obj.tamanhoChave];
+            Random random = new Random();
+            StringBuilder senha = new StringBuilder();
 
-            rng.GetBytes(obj.ChaveEmBytes);
-            //
+            for (int i = 0; i < obj.tamanhoChave; i++) {
+                int indiceCaractere = random.Next(0, obj.Chave.Length);
+                senha.Append(obj.Chave[indiceCaractere]);
+            }
             //  Texto
+            return senha.ToString();
             //
-            //string chaveAleatoria = string.Join("-",obj.ChaveEmBytes);
-            //
-            string chaveAleatoria = textoEm8Byte.TransformaNumeroEm8Byte(obj.ChaveEmBytes);
-            return chaveAleatoria;
+            //  Byte
+            //return textoEm8Byte.TransformaTextoEm8Byte(senha.ToString());
         }
     }
 }
