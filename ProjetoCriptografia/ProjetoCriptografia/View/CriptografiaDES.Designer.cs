@@ -51,7 +51,7 @@
             // 
             // txtTexto
             // 
-            this.txtTexto.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTexto.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTexto.Location = new System.Drawing.Point(29, 56);
             this.txtTexto.Multiline = true;
             this.txtTexto.Name = "txtTexto";
