@@ -9,7 +9,7 @@ namespace ProjetoCriptografia.Controllers
     internal class C_Transforma
     {
         public string TransformaTextoEm8Byte(string texto) {
-            byte[] bytes = Encoding.ASCII.GetBytes(texto);
+            byte[] bytes = Encoding.UTF8.GetBytes(texto);
 
             // Converte em uma representação binaria de 8 bits
             string[] textoEm8Bytes = new string[bytes.Length];
@@ -31,16 +31,28 @@ namespace ProjetoCriptografia.Controllers
             //Transforma o vetor em uma string
             return string.Join("", textoEm8Bytes);
         }
-        public string Transforma8ByteEmTexto(string bits) {
+        public string Transforma8ByteEmTexto(string textoBinario) {
 
-            List<byte> bytes = new List<byte>();
-            for (int i = 0; i < bits.Length; i += 8) {
-                string byteString = bits.Substring(i, 8);
-                byte valor = Convert.ToByte(byteString, 2);
-                bytes.Add(valor);
+            // Converte a sequência binária em um array de bytes
+            byte[] bytes = new byte[textoBinario.Length / 8];
+            for (int i = 0; i < bytes.Length; i++) {
+                bytes[i] = Convert.ToByte(textoBinario.Substring(i * 8, 8), 2);
             }
 
-            return Encoding.ASCII.GetString(bytes.ToArray());
+            // Converte o array de bytes em texto usando UTF-8
+            return Encoding.UTF8.GetString(bytes);
+        }
+
+        public byte[] TransformaBinarioEm8byte(string texto) {
+
+            byte[] byteArray = new byte[texto.Length / 8];
+
+            // Preencha o array de bytes com os valores convertidos da string binária
+            for (int i = 0; i < byteArray.Length; i++) {
+                string byteString = texto.Substring(i * 8, 8);
+                byteArray[i] = Convert.ToByte(byteString, 2);
+            }
+            return byteArray;
         }
 
     }

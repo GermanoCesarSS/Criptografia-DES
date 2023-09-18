@@ -27,7 +27,7 @@ namespace ProjetoCriptografia.Controllers
         }
 
         public string PermutacaoPC_1(string texto) {
-            //texto = c_Transforma.TransformaTextoEm8Byte(texto);
+            texto = c_Transforma.TransformaTextoEm8Byte(texto);
             StringBuilder kp = new StringBuilder();
 
             try {
@@ -42,7 +42,7 @@ namespace ProjetoCriptografia.Controllers
         }
 
 
-        public Tuple<string, string> DividirStringAoMeio(string texto) {
+        public Tuple<string, string> DividirStringAoMeio56bits(string texto) {
             if (texto.Length != 56) {
                 throw new ArgumentException("A string de entrada deve ter 56 caracteres.");
             }
