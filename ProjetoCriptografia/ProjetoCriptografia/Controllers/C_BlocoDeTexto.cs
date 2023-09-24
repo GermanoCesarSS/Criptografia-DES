@@ -15,8 +15,8 @@ namespace ProjetoCriptografia.Controllers
         public string DivideTextoEmBlocos(string Texto) {
             C_Transforma textoEm8Byte = new C_Transforma();
 
-            obj.texto = textoEm8Byte.TransformaTextoEm8Byte(Texto);
-
+            //obj.texto = textoEm8Byte.TransformaTextoEm8Byte(Texto);
+            obj.texto = Texto;
             int numeroDeBlocos = (int)Math.Ceiling((double)obj.texto.Length / obj.tamanhoDoBloco);
             string[] blocos = new string[numeroDeBlocos];
 

@@ -31,16 +31,12 @@ namespace ProjetoCriptografia.Controllers
             //Transforma o vetor em uma string
             return string.Join("", textoEm8Bytes);
         }
-        public string Transforma8ByteEmTexto(string textoBinario) {
+        public string Transforma8ByteEmHEX(string textoBinario) {
 
-            // Converte a sequência binária em um array de bytes
-            byte[] bytes = new byte[textoBinario.Length / 8];
-            for (int i = 0; i < bytes.Length; i++) {
-                bytes[i] = Convert.ToByte(textoBinario.Substring(i * 8, 8), 2);
-            }
+            long valorDecimal = Convert.ToInt64(textoBinario, 2);
 
-            // Converte o array de bytes em texto usando UTF-8
-            return Encoding.UTF8.GetString(bytes);
+            // Converte o valor decimal em uma string hexadecimal
+            return valorDecimal.ToString("X");
         }
 
         public byte[] TransformaBinarioEm8byte(string texto) {
@@ -53,6 +49,36 @@ namespace ProjetoCriptografia.Controllers
                 byteArray[i] = Convert.ToByte(byteString, 2);
             }
             return byteArray;
+        }
+        public byte[] BinarioParaHexadecimalBytes(string binario) {
+            // Certifique-se de que a sequência binária tenha um número par de dígitos (um byte completo)
+            if (binario.Length % 8 != 0) {
+                throw new ArgumentException("A sequência binária deve ter um número par de dígitos (um byte completo).");
+            }
+
+            // Crie um array de bytes para armazenar a representação hexadecimal
+            byte[] hexadecimalBytes = new byte[binario.Length / 8];
+
+            for (int i = 0; i < binario.Length; i += 8) {
+                string byteBinario = binario.Substring(i, 8); // Separa cada byte binário
+                byte valorByte = Convert.ToByte(byteBinario, 2); // Converte para um byte
+                hexadecimalBytes[i / 8] = valorByte; // Armazena no array de bytes
+            }
+
+            return hexadecimalBytes;
+        }
+
+        public string ConverteBinarioParaBase64(string sequenciaBinaria) {
+            // Converte a sequência binária para um array de bytes
+            byte[] bytes = new byte[sequenciaBinaria.Length / 8];
+            for (int i = 0; i < bytes.Length; i++) {
+                bytes[i] = Convert.ToByte(sequenciaBinaria.Substring(i * 8, 8), 2);
+            }
+
+            // Converte o array de bytes para base64
+            string base64 = Convert.ToBase64String(bytes);
+
+            return base64;
         }
 
     }

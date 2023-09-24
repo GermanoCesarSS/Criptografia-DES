@@ -11,15 +11,15 @@ namespace ProjetoCriptografia.Controllers
 {
     internal class C_Chave
     {
-        Chaves obj = new Chaves();
+        Chaves chaves = new Chaves();
         C_Transforma c_Transforma = new C_Transforma();
 
         public string CriandoChave() {
             Random random = new Random();
             StringBuilder senha = new StringBuilder();
-            for (int i = 0; i < obj.tamanhoChave; i++) {
-                int indiceCaractere = random.Next(0, obj.Chave.Length);
-                senha.Append(obj.Chave[indiceCaractere]);
+            for (int i = 0; i < chaves.tamanhoChave; i++) {
+                int indiceCaractere = random.Next(0, chaves.Chave.Length);
+                senha.Append(chaves.Chave[indiceCaractere]);
             }
             return senha.ToString();
             //  Byte
@@ -27,12 +27,13 @@ namespace ProjetoCriptografia.Controllers
         }
 
         public string PermutacaoPC_1(string texto) {
-            texto = c_Transforma.TransformaTextoEm8Byte(texto);
+            //texto = c_Transforma.TransformaTextoEm8Byte(texto);
+  
             StringBuilder kp = new StringBuilder();
 
             try {
-                for (int i = 0; i < obj.pc1Permutacao.Length; i++) {
-                    kp.Append(texto[obj.pc1Permutacao[i] - 1]);
+                for (int i = 0; i < chaves.pc1Permutacao.Length; i++) {
+                    kp.Append(texto[chaves.pc1Permutacao[i] - 1]);
                 }
             }
             catch (Exception e) {
@@ -61,12 +62,21 @@ namespace ProjetoCriptografia.Controllers
 
             return restante + primeiraLetra;
         }
+        public Tuple<string, string> TabelaCD(string c, string d, int rodadas)
+        {
+            for (int i = 0; i < chaves.TabelaCD[rodadas]; i++)
+            {
+                c = MoverPrimeiraLetraParaOFinal(c);
+                d = MoverPrimeiraLetraParaOFinal(d);
+            }
+            return new Tuple<string, string>(c, d);
+        }
         public string PermutacaoPC_2(string texto) {
             StringBuilder kp = new StringBuilder();
 
             try {
-                for (int i = 0; i < obj.pc2Permutacao.Length; i++) {
-                    kp.Append(texto[obj.pc2Permutacao[i] - 1]);
+                for (int i = 0; i < chaves.pc2Permutacao.Length; i++) {
+                    kp.Append(texto[chaves.pc2Permutacao[i] - 1]);
                 }
             }
             catch (Exception e) {
@@ -74,5 +84,6 @@ namespace ProjetoCriptografia.Controllers
             }
             return kp.ToString();
         }
+
     }
 }

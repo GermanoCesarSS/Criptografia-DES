@@ -16,25 +16,5 @@ namespace ProjetoCriptografia.View
         public Teste() {
             InitializeComponent();
         }
-        //Program_DES des;
-
-        ////private void ButtonDec(object sender, RoutedEventArgs e) {
-        ////    try {
-        ////        des = new Program_DES(DecKey.Text);
-        ////        des.MetodDec(DecText.Text);
-        ////    }
-        ////    catch (System.DivideByZeroException) {
-        ////        MessageBox.Show("Fields must not be empty, otherwise it will lead to an error");
-        ////    }
-        ////}
-
-        //private void airButton1_Click(object sender, EventArgs e) {
-        //    try {
-        //        des = new Program_DES(EncKey.Text);
-        //        des.MetodEnc(EncText.Text);
-        //    }
-        //    catch (System.DivideByZeroException) {
-        //        MessageBox.Show("Fields must not be empty, otherwise it will lead to an error");
-        //    }
     }
 }

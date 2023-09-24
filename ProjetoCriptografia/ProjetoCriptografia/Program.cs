@@ -16,7 +16,7 @@ namespace ProjetoCriptografia
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CriptografiaDES());
+            Application.Run(new Principal());
         }
     }
 }

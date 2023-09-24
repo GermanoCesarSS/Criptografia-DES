@@ -11,7 +11,7 @@ namespace ProjetoCriptografia.Model
     {
         public string texto { get; set; }
         public int tamanhoDoBloco { get; } = 64;
-
+       
         public int[] permutacaoIP { get; } = new int[]
         {
             58, 50, 42, 34, 26, 18, 10, 2,
@@ -34,6 +34,11 @@ namespace ProjetoCriptografia.Model
             24, 25, 26, 27, 28, 29,
             28, 29, 30, 31, 32,  1
         };
+
+        public string L { get; set; }
+        public string R { get; set; }
+        public string L1 { get; set; }
+        public string R1 { get; set; }
 
         static int[,] S1 { get; } = 
         {

@@ -14,6 +14,9 @@ namespace ProjetoCriptografia.Model
 
         public string Chave { get; } = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
         public int tamanhoChave { get; } = 8;
+
+        public string Kp { get; set; }
+        public string Kpg { get; set; }
         public int[] pc1Permutacao { get; } = new int[]
         {
             57, 49, 41, 33, 25, 17, 9,
@@ -25,6 +28,14 @@ namespace ProjetoCriptografia.Model
             14, 6, 61, 53, 45, 37, 29,
             21, 13, 5, 28, 20, 12, 4
         };
+        public string C { get; set; }
+        public string D { get; set; }
+
+        public int[] TabelaCD { get; } = new int[]
+        {
+            1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1
+        };
+        public string Ki { get; set; }
         public int[] pc2Permutacao { get; } = new int[]
         {
             14, 17, 11, 24, 1, 5,
