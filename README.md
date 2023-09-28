@@ -1,6 +1,9 @@
 # Criptografia-DES
 Software Educativo de Criptografia: software para aprender como funciona o DES
 
+O algoritmo DES ilustrado
+https://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm#:~:text=DES%20is%20a%20block%20cipher,be%20either%200%20or%201.
+
 TELA INICIAL
 ![TelaInicial](https://github.com/GermanoCesarSS/Criptografia-DES/assets/105460981/1a85edfd-948e-4b0a-9d49-e6ba3edd4b8d)
 
