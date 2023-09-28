@@ -40,6 +40,12 @@
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.mainpanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.sidebar.SuspendLayout();
             this.sidebarMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
@@ -48,6 +54,9 @@
             this.panel4.SuspendLayout();
             this.mainpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // sidebar
@@ -57,6 +66,9 @@
             this.sidebar.Controls.Add(this.panel3);
             this.sidebar.Controls.Add(this.panel2);
             this.sidebar.Controls.Add(this.panel4);
+            this.sidebar.Controls.Add(this.panel1);
+            this.sidebar.Controls.Add(this.panel5);
+            this.sidebar.Controls.Add(this.panel6);
             this.sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebar.Location = new System.Drawing.Point(0, 0);
             this.sidebar.MaximumSize = new System.Drawing.Size(317, 787);
@@ -156,7 +168,7 @@
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.Turquoise;
+            this.button2.ForeColor = System.Drawing.Color.LightSeaGreen;
             this.button2.Location = new System.Drawing.Point(-3, -29);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(573, 109);
@@ -190,6 +202,69 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Location = new System.Drawing.Point(3, 321);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(561, 52);
+            this.panel1.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.button1.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.button1.Location = new System.Drawing.Point(-3, -29);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(573, 109);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "            VIGENÈRE";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.button3);
+            this.panel5.Location = new System.Drawing.Point(3, 379);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(561, 52);
+            this.panel5.TabIndex = 10;
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.button3.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.button3.Location = new System.Drawing.Point(-3, -29);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(573, 109);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "            HASH";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.button5);
+            this.panel6.Location = new System.Drawing.Point(3, 437);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(561, 52);
+            this.panel6.TabIndex = 11;
+            // 
+            // button5
+            // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.button5.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.button5.Location = new System.Drawing.Point(-3, -29);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(573, 109);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "            AES";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -212,6 +287,9 @@
             this.mainpanel.ResumeLayout(false);
             this.mainpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -230,6 +308,12 @@
         public System.Windows.Forms.Timer sidebarTimer;
         private System.Windows.Forms.Panel mainpanel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button button5;
     }
 }
 
