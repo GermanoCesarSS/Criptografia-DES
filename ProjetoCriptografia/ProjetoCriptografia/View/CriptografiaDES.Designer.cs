@@ -180,7 +180,6 @@
             this.txtTexto.ReadOnly = false;
             this.txtTexto.Size = new System.Drawing.Size(201, 46);
             this.txtTexto.TabIndex = 20;
-            this.txtTexto.Text = "Germanoo";
             this.txtTexto.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtTexto.UseSystemPasswordChar = false;
             this.txtTexto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTexto_KeyPress);

@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjetoCriptografia.View
 {
@@ -80,13 +81,13 @@ namespace ProjetoCriptografia.View
         private void btnGerarChave_Click(object sender, EventArgs e) {
             txtChave.Text = c_Chave.CriandoChave();
         }
-        private void txtTexto_KeyPress(object sender, KeyPressEventArgs e) {
-            if (txtTexto.Text.Length >= 8 && e.KeyChar != 8) {
+        private void txtChave_KeyPress(object sender, KeyPressEventArgs e) {
+            if (txtChave.Text.Length >= 8 && e.KeyChar != 8) {
                 e.Handled = true; // Impede a entrada da tecla
             }
         }
-        private void txtChave_KeyPress(object sender, KeyPressEventArgs e) {
-            if (txtChave.Text.Length >= 8 && e.KeyChar != 8) {
+        private void txtTexto_KeyPress(object sender, KeyPressEventArgs e) {
+            if (txtTexto.Text.Length <= 8 && e.KeyChar != 8) {
                 e.Handled = true; // Impede a entrada da tecla
             }
         }
@@ -262,52 +263,58 @@ namespace ProjetoCriptografia.View
         string L1 = "";
         string R1 = "";
         private void btnDES_Click(object sender, EventArgs e) {
-            chaves.Kp = c_Transforma.TransformaTextoEm8Byte(txtChave.Text);
-            chaves.Kp = c_Chave.PermutacaoPC_1(chaves.Kp);
-            Tuple<string, string> resultadoChave = c_Chave.DividirStringAoMeio56bits(chaves.Kp);
-            chaves.C = resultadoChave.Item1;
-            chaves.D = resultadoChave.Item2;
 
-            //Texto.texto = c_BlocoDeTexto.DivideTextoEmBlocos("0000000100100011010001010110011110001001101010111100110111101111"); //divide em blocos de 64bits
-            Texto.texto = c_Transforma.TransformaTextoEm8Byte(txtTexto.Text);
-            Texto.texto = c_BlocoDeTexto.PermutacaoInicialIP(Texto.texto); //começa aqui
+            if (txtTexto.Text.Length == 8 && txtChave.Text.Length == 8) {
+                chaves.Kp = c_Transforma.TransformaTextoEm8Byte(txtChave.Text);
+                chaves.Kp = c_Chave.PermutacaoPC_1(chaves.Kp);
+                Tuple<string, string> resultadoChave = c_Chave.DividirStringAoMeio56bits(chaves.Kp);
+                chaves.C = resultadoChave.Item1;
+                chaves.D = resultadoChave.Item2;
 
-            for (int rodadas = 0; rodadas < 16; rodadas++) {
-                //Chave
-                Tuple<string, string> resultadoCD = c_Chave.TabelaCD(chaves.C, chaves.D, rodadas);
-                chaves.C = resultadoCD.Item1;
-                chaves.D = resultadoCD.Item2;
-                chaves.Kpg = chaves.C + chaves.D;
+                //Texto.texto = c_BlocoDeTexto.DivideTextoEmBlocos("0000000100100011010001010110011110001001101010111100110111101111"); //divide em blocos de 64bits
+                Texto.texto = c_Transforma.TransformaTextoEm8Byte(txtTexto.Text);
+                Texto.texto = c_BlocoDeTexto.PermutacaoInicialIP(Texto.texto); //começa aqui
+
+                for (int rodadas = 0; rodadas < 16; rodadas++) {
+                    //Chave
+                    Tuple<string, string> resultadoCD = c_Chave.TabelaCD(chaves.C, chaves.D, rodadas);
+                    chaves.C = resultadoCD.Item1;
+                    chaves.D = resultadoCD.Item2;
+                    chaves.Kpg = chaves.C + chaves.D;
 
 
-                chaves.Ki = c_Chave.PermutacaoPC_2(chaves.Kpg);
+                    chaves.Ki = c_Chave.PermutacaoPC_2(chaves.Kpg);
 
-                //Texto
-                Tuple<string, string> resultadoTexto = c_BlocoDeTexto.DividirStringAoMeio64bits(Texto.texto);
-                Texto.L = resultadoTexto.Item1;
-                Texto.R = resultadoTexto.Item2;
-                L1 = Texto.R;
-                Texto.texto = c_BlocoDeTexto.ExpansaoEBit(Texto.R);
+                    //Texto
+                    Tuple<string, string> resultadoTexto = c_BlocoDeTexto.DividirStringAoMeio64bits(Texto.texto);
+                    Texto.L = resultadoTexto.Item1;
+                    Texto.R = resultadoTexto.Item2;
+                    L1 = Texto.R;
+                    Texto.texto = c_BlocoDeTexto.ExpansaoEBit(Texto.R);
 
-                //Texto + Chave
-                string F = c_BlocoDeTexto.XOR(Texto.texto, chaves.Ki);
-                F = c_BlocoDeTexto.SBOX(F);
-                F = c_BlocoDeTexto.PermutacaoP(F);
-                R1 = c_BlocoDeTexto.XOR(F, Texto.L);
-                F = L1 + R1;
-                Texto.texto = F;
-                label1.Text = Convert.ToString(rodadas + 1);
+                    //Texto + Chave
+                    string F = c_BlocoDeTexto.XOR(Texto.texto, chaves.Ki);
+                    F = c_BlocoDeTexto.SBOX(F);
+                    F = c_BlocoDeTexto.PermutacaoP(F);
+                    R1 = c_BlocoDeTexto.XOR(F, Texto.L);
+                    F = L1 + R1;
+                    Texto.texto = F;
+                    label1.Text = Convert.ToString(rodadas + 1);
+                }
+
+                //Ultima rodada
+                string RELE = R1 + L1;
+                RELE = c_BlocoDeTexto.PermutacaoIP_1(RELE);
+                //string caminhoArquivo = @"C:\Users\Public\Documents\Encrypt\TesteMeuNome.txt";
+
+                RELE = c_Transforma.ConverteBinarioParaBase64(RELE);
+
+                //File.WriteAllText(caminhoArquivo, RELE);
+                txtTextoCrip.Text = RELE;
             }
-
-            //Ultima rodada
-            string RELE = R1 + L1;
-            RELE = c_BlocoDeTexto.PermutacaoIP_1(RELE);
-            //string caminhoArquivo = @"C:\Users\Public\Documents\Encrypt\TesteMeuNome.txt";
-
-            RELE = c_Transforma.ConverteBinarioParaBase64(RELE);
-
-            //File.WriteAllText(caminhoArquivo, RELE);
-            txtTextoCrip.Text = RELE;
+            else {
+                MessageBox.Show("Texto ou Chave não possui 8 caracter");
+            }
         }
         
         //Controle dos Paineis
@@ -372,6 +379,8 @@ namespace ProjetoCriptografia.View
             rodadas = 0;
             btnRodada.Text = $"Terminar Rodada {rodadas + 1}";
         }
+
+       
 
         private void bigLabel21_Click(object sender, EventArgs e) {
 
