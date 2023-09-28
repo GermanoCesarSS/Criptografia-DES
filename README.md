@@ -1,7 +1,7 @@
 # Criptografia-DES
 Software Educativo de Criptografia: software para aprender como funciona o DES
 
-TELAS INICIAL
+TELA INICIAL
 ![TelaInicial](https://github.com/GermanoCesarSS/Criptografia-DES/assets/105460981/1a85edfd-948e-4b0a-9d49-e6ba3edd4b8d)
 
 
