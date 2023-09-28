@@ -44,10 +44,6 @@ namespace ProjetoCriptografia.Controllers
 
 
         public Tuple<string, string> DividirStringAoMeio56bits(string texto) {
-            if (texto.Length != 56) {
-                throw new ArgumentException("A string de entrada deve ter 56 caracteres.");
-            }
-
             int meio = texto.Length / 2;
             string parte1 = texto.Substring(0, meio);
             string parte2 = texto.Substring(meio);

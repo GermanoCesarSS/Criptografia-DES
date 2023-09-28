@@ -65,5 +65,9 @@ namespace ProjetoCriptografia
         private void btnCesar_Click(object sender, EventArgs e) {
             loadForm(new CifraCesar());
         }
+
+        private void button2_Click(object sender, EventArgs e) {
+
+        }
     }
 }

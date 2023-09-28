@@ -37,8 +37,10 @@ namespace ProjetoCriptografia.Model
 
         public string L { get; set; }
         public string R { get; set; }
-        public string L1 { get; set; }
-        public string R1 { get; set; }
+        public string Ln { get; set; }
+        public string Rn { get; set; }
+        public string F { get; set; }
+        
 
         static int[,] S1 { get; } = 
         {

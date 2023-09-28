@@ -31,9 +31,8 @@ namespace ProjetoCriptografia
                 "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
                 "U", "V", "W", "X", "Y", "Z"};
 
-              int inicio = 0;
 
-            for (int i = int.Parse(textBox1.Text), j = 0; j < labelTxt.Count; i++, j++) {
+            for (int i = int.Parse(lblchave.Text), j = 0; j < labelTxt.Count; i++, j++) {
 
                 if (i >= letras.Length) // Verifica se o índice i ultrapassou o tamanho da matriz letras
                 {
@@ -46,18 +45,18 @@ namespace ProjetoCriptografia
 
         private void button2_Click(object sender, EventArgs e) {
             
-            string textoNormal = textBox2.Text;
-            int chave = int.Parse(textBox1.Text);
+            string textoNormal = txtTexto.Text;
+            int chave = int.Parse(lblchave.Text);
 
             string textoCriptogravado = Encriptar(textoNormal, chave);
-            textBox2.Text = textoCriptogravado;
+            txtCifrado.Text += textoCriptogravado;
         }
         private void button3_Click(object sender, EventArgs e) {
-            string textoCriptografado = textBox2.Text;
-            int chave = int.Parse(textBox1.Text);
+            string textoCriptografado = txtCifrado.Text;
+            int chave = int.Parse(lblchave.Text);
 
             string textoDescriptografado = Descriptar(textoCriptografado, chave);
-            textBox2.Text = textoDescriptografado;
+            txtTexto.Text += textoDescriptografado;
         }
         private string Encriptar(string text, int chave) {
             string textCriptogravado = "";

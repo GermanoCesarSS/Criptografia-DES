@@ -12,6 +12,7 @@ namespace ProjetoCriptografia.Controllers
     internal class C_BlocoDeTexto
     {
             BlocoDeTexto obj = new BlocoDeTexto();
+            C_Transforma c_Transforma = new C_Transforma();
         public string DivideTextoEmBlocos(string Texto) {
             C_Transforma textoEm8Byte = new C_Transforma();
 
@@ -37,6 +38,7 @@ namespace ProjetoCriptografia.Controllers
         }
 
         public string PermutacaoInicialIP(string texto) {
+            //texto = c_Transforma.TransformaTextoEm8Byte(texto);
             StringBuilder kp = new StringBuilder();
 
             try {
